@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, FileText, Users, MessageSquare, LogOut } from 'lucide-react';
+import { LayoutDashboard, FileText, Users, MessageSquare, LogOut, Cloud } from 'lucide-react';  // Added Cloud icon
 import { signOut } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 
@@ -66,6 +66,19 @@ const Sidebar = () => {
         >
           <MessageSquare className="w-5 h-5 mr-3 text-[#0d5524]" />
           Forms
+        </NavLink>
+
+        {/* New link for Assets */}
+        <NavLink
+          to="/assets"
+          className={({ isActive }) =>
+            `flex items-center px-6 py-3 text-[#0d5524] hover:bg-gray-100 ${
+              isActive ? 'bg-gray-100 border-r-4 border-[#0d5524]' : ''
+            }`
+          }
+        >
+          <Cloud className="w-5 h-5 mr-3 text-[#0d5524]" /> {/* Using the Cloud icon for Assets */}
+          Assets
         </NavLink>
       </nav>
 

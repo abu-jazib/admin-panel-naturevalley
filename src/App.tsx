@@ -10,6 +10,7 @@ import Forms from './pages/Forms';
 import Layout from './components/Layout';  
 import CreateBlog from './pages/CreateBlog';  
 import EditBlog from './pages/EditBlog';
+import Assets from './pages/assets';
   
 function App() {  
   const [user, setUser] = useState<any>(null);  
@@ -49,6 +50,7 @@ function App() {
           <Route path="/" element={<Navigate to="/dashboard" />} />  
           <Route path="/blogs/create" element={<CreateBlog />} />
           <Route path="/blogs/edit/:id" element={<EditBlog />} /> 
+          <Route path="/assets" element={<Assets />} />
         </Route>  
       </Routes>  
     </Router>  

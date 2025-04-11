@@ -8,6 +8,7 @@ const Dashboard = () => {
     blogs: 0,
     subscribers: 0,
     forms: 0,
+    visitors: 0,
   });
 
   useEffect(() => {
@@ -15,11 +16,13 @@ const Dashboard = () => {
       const blogsCount = (await getDocs(collection(db, 'blogs'))).size;
       const subscribersCount = (await getDocs(collection(db, 'subscribers'))).size;
       const formsCount = (await getDocs(collection(db, 'forms'))).size;
+      const visitorsCount = (await getDocs(collection(db, 'visitor_count'))).size;
 
       setStats({
         blogs: blogsCount,
         subscribers: subscribersCount,
         forms: formsCount,
+        visitors: visitorsCount, // Placeholder for visitors count
       });
     };
 
@@ -60,6 +63,17 @@ const Dashboard = () => {
             <div className="ml-4">
               <h2 className="text-lg font-semibold text-gray-700">Form Submissions</h2>
               <p className="text-3xl font-bold text-gray-900">{stats.forms}</p>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white rounded-lg shadow p-6">
+          <div className="flex items-center">
+            <div className="p-3 bg-purple-100 rounded-full">
+              <MessageSquare className="w-6 h-6 text-purple-600" />
+            </div>
+            <div className="ml-4">
+              <h2 className="text-lg font-semibold text-gray-700">Visitors</h2>
+              <p className="text-3xl font-bold text-gray-900">{stats.visitors}</p>
             </div>
           </div>
         </div>
