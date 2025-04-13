@@ -50,7 +50,8 @@ const CreateBlog = () => {
       authorImageUrl: formData.authorImageUrl || null,  
       authorDescription: formData.authorDescription || '',  
       createdAt: new Date(),  
-      updatedAt: new Date(),  
+      updatedAt: new Date(),
+      views: 0,  
     };  
   
     await addDoc(collection(db, 'blogs'), blogData);  

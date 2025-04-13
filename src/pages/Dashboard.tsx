@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc  } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { FileText, Users, MessageSquare } from 'lucide-react';
+
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
@@ -16,7 +17,10 @@ const Dashboard = () => {
       const blogsCount = (await getDocs(collection(db, 'blogs'))).size;
       const subscribersCount = (await getDocs(collection(db, 'subscribers'))).size;
       const formsCount = (await getDocs(collection(db, 'forms'))).size;
-      const visitorsCount = (await getDocs(collection(db, 'visitor_count'))).size;
+      
+      const counterDocRef = doc(db, 'visitor_count', 'counter');
+    const counterSnap = await getDoc(counterDocRef);
+    const visitorsCount = counterSnap.exists() ? counterSnap.data().count : 0;
 
       setStats({
         blogs: blogsCount,

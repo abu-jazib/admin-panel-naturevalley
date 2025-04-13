@@ -15,7 +15,8 @@ interface Blog {
   authorDescription: string;  
   tags: string[];  
   createdAt: any;  
-  updatedAt: any;  
+  updatedAt: any;
+  views: number;  
 }  
   
 const Blogs = () => {  
@@ -72,7 +73,8 @@ const Blogs = () => {
           <thead>  
             <tr className="border-b">  
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>  
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Author</th>  
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Author</th> 
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Views</th>   
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created At</th>  
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>  
             </tr>  
@@ -81,7 +83,8 @@ const Blogs = () => {
             {blogs.map((blog) => (  
               <tr key={blog.id}>  
                 <td className="px-6 py-4">{blog.title}</td>  
-                <td className="px-6 py-4">{blog.author}</td>  
+                <td className="px-6 py-4">{blog.author}</td>
+                <td className="px-6 py-4">{blog.views}</td>    
                 <td className="px-6 py-4">{format(blog.createdAt.toDate(), 'MMM dd, yyyy')}</td>  
                 <td className="px-6 py-4">  
                   <button  

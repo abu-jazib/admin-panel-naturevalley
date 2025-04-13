@@ -62,7 +62,7 @@ const Assets = () => {
 
     try {
       // Upload the file to the backend API
-      const response = await axios.post('http://localhost:4000/api/assets-upload/upload', formData, {
+      const response = await axios.post('https://backend.naturevalley.com.pk/api/assets-upload/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
